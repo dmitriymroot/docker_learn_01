@@ -1,8 +1,17 @@
-version: "3"
+version: "3.5"
 services: 
-        logcenter:
+         logcenter:
                 build: logcenter/
                 ports: 
                 - 514:514
-
+                volumes:
+                - type: bind
+                  source: /mnt/data
+                  target: /mnt/data
+         cron:          
+                build: cron/
+                volumes:
+                - type: bind
+                  source: /mnt/data        
+                  target: /mnt/data
 
