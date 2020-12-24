@@ -1,1 +1,2 @@
-*/10 * * * * root /home/del.sh
+*/10 * * * * root /home/awk.sh
+
