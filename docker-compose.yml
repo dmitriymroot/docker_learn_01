@@ -14,4 +14,14 @@ services:
                 - type: bind
                   source: /mnt/data        
                   target: /mnt/data
+         mysql:
+                 build: mysql/
+                 ports:
+                 - 3306:3306
+                 environment:
+                         MYSQL_ROOT_PASSWORD: 123123
+                 volumes:
+                 - type: bind
+                   source: /mnt/data
+                   target: /mnt/data
 
