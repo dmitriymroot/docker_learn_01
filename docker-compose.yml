@@ -27,4 +27,10 @@ services:
                  - type: bind
                    source: /mnt/data/mysql
                    target: /var/lib/mysql
-
+                   target: /mnt/data/
+         pythonbd:          
+                build: pythonbd/
+                volumes:
+                - type: bind
+                  source: /mnt/data        
+                  target: /mnt/data
