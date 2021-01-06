@@ -18,18 +18,23 @@ services:
                  build: mysql/
                  ports:
                  - 3306:3306
+                 env_file:
+                         - .env
                  environment:
-                         MYSQL_RANDOM_ROOT_PASSWORD: 1
-                         MYSQL_DATABASE: logging
-                         MYSQL_USER: loguser
-                         MYSQL_PASSWORD: nfjk#@34ff
+                         # MYSQL_DATABASE: logging
+                         # MYSQL_USER: loguser
+                         # MYSQL_PASSWORD: nfjk#@34ff
+                         MYSQL_ROOT_PASSWORD: "${mysqlpass}"
                  volumes:
                  - type: bind
                    source: /mnt/data/mysql
                    target: /var/lib/mysql
-                   target: /mnt/data/
+                   source: /mnt/data/out
+                   target: /mnt/data/out
          pythonbd:          
                 build: pythonbd/
+                env_file:
+                        - .env          
                 volumes:
                 - type: bind
                   source: /mnt/data        
