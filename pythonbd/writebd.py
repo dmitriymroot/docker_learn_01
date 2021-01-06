@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 
 import pymysql
+import os
 
-db = pymysql.connect("192.168.50.191","root","test123", local_infile = 1)
+mysqlpass = os.getenv('mysqlpass')
+
+db = pymysql.connect("192.168.50.191","root",mysqlpass, local_infile = 1)
 cursor = db.cursor()
 
 
@@ -12,7 +15,7 @@ cursor.execute(create)
 
 db.close()
 
-db = pymysql.connect("192.168.50.191","root","test123","logging", local_infile = 1)
+db = pymysql.connect("192.168.50.191","root",mysqlpass,"logging", local_infile = 1)
 
 cursor = db.cursor()
 
